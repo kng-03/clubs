@@ -1,2 +1,133 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Home | MCOE Pulse</title><link rel="stylesheet" href="style.css"></head>
-<body data-p="home"><header id="nav"></header><main id="m"></main><footer>PES's Modern College of Engineering, 1186/A, Off J.M. Road, Shivajinagar, Pune 411005. student_section@moderncoe.edu.in</footer><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MCOE Pulse | Clubs, chapters and events</title>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2A5C;--blue:#BBD3F5;--cream:#F4E8CF;--yellow:#FBE29A;--lav:#DDD0F6;--mint:#D3E8C6;--pink:#FAD0E1;--paper:#FFFDF7}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;font:19px/1.5 "Patrick Hand","Segoe Print",system-ui,sans-serif;color:var(--navy);background:#ececee url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .4 0 0 0 0 .45 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+h1,h2,h3,.logo,button,.lbl,.btn{font-family:"Lilita One","Arial Rounded MT Bold",system-ui,sans-serif;font-weight:400}
+a{color:var(--navy)}
+header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:12px 5vw;background:var(--paper);border-bottom:3px dashed var(--navy);position:sticky;top:0;z-index:5}
+.logo{font-size:26px;text-decoration:none;background:var(--yellow);padding:2px 16px;border-radius:8px;transform:rotate(-2deg);box-shadow:3px 3px 0 var(--navy)}
+nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+nav a{text-decoration:none;font-size:20px;padding:4px 14px;border-radius:999px;border:2px solid transparent}
+nav a:hover,nav a.on{background:var(--blue);border-color:var(--navy)}
+main{max-width:1100px;margin:0 auto;padding:20px 5vw 50px}
+h1{font-size:clamp(46px,10vw,100px);line-height:1;margin:.1em 0;text-shadow:3px 3px 0 #fff,6px 6px 0 rgba(27,42,92,.18)}
+h2{font-size:30px;margin:1.6em 0 .6em}h3{font-size:23px;margin:.2em 0}
+.torn{clip-path:polygon(0 8%,4% 0,9% 7%,15% 1%,22% 8%,30% 0,38% 7%,46% 1%,54% 8%,62% 0,70% 7%,78% 1%,86% 8%,94% 0,100% 6%,100% 92%,95% 100%,88% 93%,80% 100%,71% 92%,62% 100%,53% 93%,44% 100%,35% 92%,26% 100%,17% 93%,9% 100%,3% 92%,0 98%)}
+.strip{display:inline-block;background:var(--c,var(--blue));padding:10px 30px;margin:6px 0}
+h2.strip{transform:rotate(-1deg)}
+.hero{position:relative;text-align:center;padding:30px 0 10px}
+.hero .strip{font-size:24px;letter-spacing:.08em}
+.dd{position:absolute;stroke:var(--navy);fill:none;stroke-width:2;pointer-events:none}
+.dd.f{fill:var(--yellow)}.d1{width:90px;left:2%;top:10px;transform:rotate(-12deg)}.d2{width:110px;right:3%;top:30px}.d3{width:44px;right:12%;bottom:30px}.d4{width:34px;left:9%;bottom:10px}
+.search{display:flex;gap:10px;flex-wrap:wrap;max-width:640px;margin:22px auto 0;background:var(--blue);padding:16px;border:2px solid var(--navy);border-radius:6px;box-shadow:5px 5px 0 var(--navy)}
+input,select,textarea{font:inherit;padding:10px 14px;border:2px solid var(--navy);border-radius:8px;background:#fff;color:var(--navy);min-height:46px}
+.search input{flex:1;min-width:200px}
+button,.btn{font-size:19px;background:var(--navy);color:#fff;border:2px solid var(--navy);border-radius:999px;padding:8px 22px;min-height:46px;cursor:pointer;box-shadow:3px 3px 0 var(--yellow);text-decoration:none;display:inline-block}
+button:hover,.btn:hover{transform:translate(-1px,-1px)}button:active{transform:translate(2px,2px);box-shadow:none}
+button.ghost{background:var(--cream);color:var(--navy);box-shadow:3px 3px 0 var(--navy)}button:disabled{opacity:.5;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;box-shadow:0 0 0 6px var(--navy)}
+.tiles,.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:26px 0}
+.tile{background:var(--c);padding:22px 12px;text-align:center;font-size:20px;border-radius:6px;transform:rotate(var(--r,0deg))}
+.tile:nth-child(odd){--r:-1.5deg}.tile:nth-child(even){--r:1.5deg}.tile b{display:block;font-size:40px}
+.stats div{background:var(--paper);border:2px solid var(--navy);border-radius:6px;padding:10px 16px;box-shadow:4px 4px 0 var(--navy)}
+.stats b{display:block;font:34px "Lilita One",sans-serif}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:26px 20px}
+.card{position:relative;display:flex;flex-direction:column;gap:6px;background:var(--paper);border:2px solid var(--navy);border-radius:6px;padding:26px 18px 18px;box-shadow:5px 5px 0 rgba(27,42,92,.25);transform:rotate(-.8deg);transition:transform .15s}
+.card:nth-child(even){transform:rotate(.8deg)}.card:hover{transform:rotate(0) translateY(-3px)}
+.card::before{content:"";position:absolute;top:-12px;left:50%;width:84px;height:24px;margin-left:-42px;background:var(--c,var(--yellow));opacity:.9;transform:rotate(-3deg);border:1px solid rgba(27,42,92,.2)}
+.card:nth-child(6n+1){--c:var(--yellow)}.card:nth-child(6n+2){--c:var(--blue)}.card:nth-child(6n+3){--c:var(--pink)}.card:nth-child(6n+4){--c:var(--mint)}.card:nth-child(6n+5){--c:var(--lav)}.card:nth-child(6n){--c:var(--cream)}
+.card p{margin:0}.card button{margin-top:auto;align-self:flex-start}
+.card p:not(.m):not(.ticket):not(.r){display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.m,small{opacity:.75}.tag{align-self:flex-start;background:var(--c);border:2px solid var(--navy);border-radius:999px;padding:0 12px;font-size:16px}
+.lbl{align-self:flex-start;background:var(--c);padding:2px 14px;font-size:17px;transform:rotate(-1.5deg)}
+.ticket{font:20px "Lilita One",sans-serif;letter-spacing:.08em;border:3px dashed var(--navy);padding:6px 10px;text-align:center;background:#fff}
+.list p{background:var(--paper);border:2px solid var(--navy);border-radius:6px;padding:10px 16px;margin:10px 0;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.list p button{padding:2px 14px;min-height:38px;font-size:17px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;background:var(--cream);border:2px dashed var(--navy);padding:14px;border-radius:6px}.filters input{flex:1;min-width:160px}
+.auth{max-width:460px;margin:0 auto;background:var(--paper);border:2px solid var(--navy);border-radius:6px;padding:10px 24px 26px;box-shadow:6px 6px 0 var(--navy)}
+form{display:grid;gap:12px}.filters,.search{display:flex}label{display:grid;gap:4px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}.cols section{background:var(--paper);border:2px solid var(--navy);border-radius:6px;padding:4px 20px 20px}
+.cols h2{font-size:26px}.empty{grid-column:1/-1;text-align:center;border:3px dashed var(--navy);border-radius:6px;padding:30px;background:var(--paper)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) rotate(-1.5deg);background:var(--yellow);border:2px solid var(--navy);box-shadow:4px 4px 0 var(--navy);padding:10px 22px;z-index:9;animation:pop .25s}
+@keyframes pop{from{opacity:0;transform:translate(-50%,12px)}}
+footer{text-align:center;padding:26px 5vw;background:var(--blue);border-top:3px dashed var(--navy)}
+@media(max-width:600px){body{font-size:18px}.dd.d1,.dd.d2{width:56px}.search button{width:100%}nav a{font-size:18px;padding:4px 10px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head>
+<body><header id="nav"></header><main id="m"></main>
+<footer>PES's Modern College of Engineering, 1186/A, Off J.M. Road, Shivajinagar, Pune 411005<br>student_section@moderncoe.edu.in</footer>
+<script>
+const $=s=>document.querySelector(s),h=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])),uid=()=>Math.random().toString(36).slice(2,9);
+const CH="ACM,ISLE,PMA,IEEE,CSI,IETE,IEI,SAE,IET,S4DS".split(','),
+CL="FOSS,Robotics,GraphiX,Cypher,Aero,Brain Stormer's,Wall Magazine,Foxcodes Campus,Metamorph,Pegasus,Code Cooks,Technofuel,Art Glimpse,CoDE Club (AIML),CoDE Club (AIDS),PIXINSIGHT,App Club,Rotaract Club ENTC,Mars Club".split(','),
+DEPTS=["Computer","IT","E&TC","Mechanical","Electrical","Electronics & Computer","MCA","MBA","AI&DS","AI&ML"],
+DM={ACM:"Computer",CSI:"Computer","App Club":"Computer",Aero:"Mechanical",SAE:"Mechanical",IEEE:"E&TC",IETE:"E&TC","Rotaract Club ENTC":"E&TC","CoDE Club (AIML)":"AI&ML","CoDE Club (AIDS)":"AI&DS"};
+const seed=()=>{const d={clubs:[...CH.map(n=>[n+' Student Chapter','Chapter',n]),...CL.map(n=>[n,'Club',n])].map(([name,type,k],i)=>({id:'c'+i,name,type,dept:DM[k]||'All',about:'Sample description. Club members can edit this from their workspace.'})),
+users:[],me:null,reqs:[],regs:[],anns:[{id:'a1',cid:'c4',title:'CSI Club Interviews 2026: technical, design, event management, marketing, social media and documentation teams. Registration closes 5 Oct.',date:'2026-10-04'}],
+events:[{id:'e0',cid:'c4',title:'CSI Club Interviews 2026 (5 to 6 Oct)',date:'2026-10-05',venue:'Room 325, 11:30 am to 12:30 pm',cap:100},{id:'e1',cid:'c0',title:'Intro to Git and GitHub (sample)',date:'2026-10-20',venue:'Venue to be announced',cap:60},{id:'e2',cid:'c11',title:'Robotics workshop (sample)',date:'2026-10-27',venue:'Venue to be announced',cap:30}]};
+d.clubs[4].about='Think. Code. Innovate. Turn your ideas into impact with the Department of Computer Engineering.';return d};
+let D;try{D=JSON.parse(localStorage.pulse)}catch(e){}D=D||seed();
+const save=()=>localStorage.pulse=JSON.stringify(D),me=()=>D.users.find(u=>u.id==D.me),cn=id=>D.clubs.find(c=>c.id==id)?.name||'',left=e=>e.cap-D.regs.filter(r=>r.eid==e.id).length,own=c=>!!me()?.clubs?.includes(c),cid=()=>sessionStorage.cid;
+const need=r=>{const u=me();if(!u||(r&&u.role!=r)){location.hash='#/login';return}return u};
+const toast=t=>{const d=document.createElement('div');d.className='toast';d.setAttribute('role','status');d.textContent=t;document.body.append(d);setTimeout(()=>d.remove(),2600)};
+const STAR='<svg class="dd f" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.8L18.2 22 12 18l-6.2 4 1.5-7.6L2 9.6 9 9z"/></svg>',PLANE='<svg class="dd d2" viewBox="0 0 64 48"><path d="M2 22L62 2 44 46 30 30zM30 30L62 2"/></svg>';
+const evCard=(e,act)=>{const u=me(),r=u&&D.regs.find(r=>r.eid==e.id&&r.uid==u.id),l=left(e);return `<article class=card><span class=lbl>Event details</span><small>${h(cn(e.cid))}</small><h3>${h(e.title)}</h3><p class=r>📅 ${h(e.date)}</p><p class=r>📍 ${h(e.venue)}</p><p class="r m">🎟️ ${l} of ${e.cap} seats left</p>${act?(r?`<button class=ghost data-a=unreg data-i=${e.id}>Cancel registration</button>`:`<button data-a=reg data-i=${e.id} ${l<1?'disabled':''}>${l<1?'Full':'Register'}</button>`):''}</article>`};
+const clubCard=c=>{const u=me(),rq=u&&D.reqs.find(r=>r.cid==c.id&&r.uid==u.id);const b=own(c.id)?'<span class=tag>Your club</span>':rq?`<span class=tag>${{ok:'Joined',no:'Declined',wait:'Request sent'}[rq.st]}</span>`:`<button data-a=join data-i=${c.id}>Request to join</button>`;return `<article class=card><span class=tag>${c.type}</span><h3>${h(c.name)}</h3><p>${h(c.about)}</p><p class=m>${c.dept=='All'?'Open to all departments':h(c.dept)}</p>${b}</article>`};
+const P={
+home(){$('#m').innerHTML=`<section class=hero>${STAR.replace('class="dd f"','class="dd f d1"')}${PLANE}${STAR.replace('class="dd f"','class="dd f d3"')}${STAR.replace('class="dd f"','class="dd f d4"')}<p class="strip torn" style="--c:var(--blue)">EXPLORE • PARTICIPATE • GROW</p><h1>MCOE Pulse</h1><p class="strip torn" style="--c:var(--cream);font-size:26px">Be more than a student.</p>
+<form id=q class=search><input name=q placeholder="Search clubs and chapters, like Robotics" aria-label="Search clubs"><button>Search</button></form></section>
+<section class=tiles>${[['🔎','Discover clubs','--blue'],['🤝','Join a community','--lav'],['📅','Register for events','--yellow'],['🎟️','Get your ticket','--pink'],['📣','Read announcements','--mint'],['🛠️','Run your club','--cream']].map(([i,t,c])=>`<div class=tile style="--c:var(${c})"><b>${i}</b>${t}</div>`).join('')}</section>
+<section class=stats>${[[D.clubs.length,'chapters and clubs'],[D.events.length,'upcoming events'],[D.users.length,'registered users']].map(([n,l])=>`<div><b>${n}</b>${l}</div>`).join('')}</section>
+<h2 class="strip torn" style="--c:var(--yellow)">Upcoming events</h2><div class=grid>${D.events.slice(0,3).map(e=>evCard(e)).join('')}</div>
+<h2 class="strip torn" style="--c:var(--pink)">Announcements</h2><div class=list>${D.anns.slice(0,4).map(a=>`<p><b>${h(a.title)}</b><span class=m>${h(cn(a.cid))}, ${h(a.date)}</span></p>`).join('')}</div>`},
+clubs(q){const s=(q.get('q')||'').toLowerCase(),t=q.get('t')||'',d=q.get('d')||'',L=D.clubs.filter(c=>c.name.toLowerCase().includes(s)&&(!t||c.type==t)&&(!d||c.dept==d||c.dept=='All'));
+$('#m').innerHTML=`<h1 style="font-size:clamp(36px,7vw,64px)">Chapters and clubs</h1><form id=flt class=filters><input name=q value="${h(s)}" placeholder="Search by name" aria-label=Search><select name=t aria-label=Type><option value="">All types<option ${t=='Chapter'?'selected':''}>Chapter<option ${t=='Club'?'selected':''}>Club</select><select name=d aria-label=Department><option value="">All departments${DEPTS.map(x=>`<option ${d==x?'selected':''}>${h(x)}`).join('')}</select><button>Filter</button></form><br><div class=grid>${L.map(clubCard).join('')||'<p class=empty>No matches. Try a shorter search or clear the filters.</p>'}</div>`},
+events(){$('#m').innerHTML=`<h1 style="font-size:clamp(36px,7vw,64px)">Events and programs</h1><div class=grid>${[...D.events].sort((a,b)=>a.date<b.date?-1:1).map(e=>evCard(e,1)).join('')||'<p class=empty>No events yet.</p>'}</div>`},
+login(){$('#m').innerHTML=`<div class=auth><h2>Log in</h2><form id=login><label>Email<input name=email type=email required></label><label>Password<input name=pw type=password required></label><button>Log in</button></form>
+<h2>New here? Create an account</h2><form id=signup><label>Name<input name=name required></label><label>Email<input name=email type=email required></label><label>Password (6 or more characters)<input name=pw type=password minlength=6 required></label><label>I am a<select name=role id=role><option value=student>Student<option value=member>Club member</select></label><label id=cl hidden>My club<select name=club>${D.clubs.map(c=>`<option value=${c.id}>${h(c.name)}`).join('')}</select></label><button>Create account</button></form></div>`;
+$('#role').onchange=e=>$('#cl').hidden=e.target.value!='member'},
+me(){const u=need();if(!u)return;const R=D.reqs.filter(r=>r.uid==u.id),regs=D.regs.filter(r=>r.uid==u.id);
+$('#m').innerHTML=`<h1 style="font-size:clamp(36px,7vw,64px)">Hi, ${h(u.name)}</h1><h2 class="strip torn" style="--c:var(--lav)">My clubs</h2><div class=list>${[...(u.clubs||[]).map(c=>[c,'Member']),...R.map(r=>[r.cid,{ok:'Joined',no:'Declined',wait:'Request pending'}[r.st]])].map(([c,s])=>`<p><b>${h(cn(c))}</b> <span class=tag style="--c:var(--blue)">${s}</span></p>`).join('')||'<p>You have not joined a club yet. <a href="#/clubs">Browse clubs</a></p>'}</div>
+<h2 class="strip torn" style="--c:var(--yellow)">My registrations</h2><div class=grid>${regs.map(r=>{const e=D.events.find(x=>x.id==r.eid);return e?`<article class=card><small>${h(cn(e.cid))}</small><h3>${h(e.title)}</h3><p class=r>📅 ${h(e.date)}</p><p class=ticket>Ticket ${r.id.toUpperCase()}</p><button class=ghost data-a=unreg data-i=${e.id}>Cancel registration</button></article>`:''}).join('')||'<p class=empty>No registrations yet. <a href="#/events">See events</a></p>'}</div>`},
+club(){const u=need('member');if(!u)return;const cs=u.clubs;let c0=cid();if(!cs.includes(c0))c0=cs[0];sessionStorage.cid=c0;const c=D.clubs.find(x=>x.id==c0),ev=D.events.filter(e=>e.cid==c0),rq=D.reqs.filter(r=>r.cid==c0&&r.st=='wait');
+$('#m').innerHTML=`<h1 style="font-size:clamp(34px,6vw,60px)">${h(c.name)} workspace</h1>${cs.length>1?`<select id=sw aria-label="Switch club">${cs.map(x=>`<option value=${x} ${x==c0?'selected':''}>${h(cn(x))}`).join('')}</select>`:''}
+<div class=cols><section><h2>Club profile</h2><form id=about><label>About<textarea name=about rows=4>${h(c.about)}</textarea></label><button>Save profile</button></form><h2>Post an announcement</h2><form id=anf><label>Title<input name=title required></label><button>Publish announcement</button></form></section>
+<section><h2>Create an event</h2><form id=evf><label>Title<input name=title required></label><label>Date<input name=date type=date required></label><label>Venue<input name=venue required></label><label>Seats<input name=cap type=number min=1 value=50 required></label><button>Create event</button></form></section></div>
+<h2 class="strip torn" style="--c:var(--mint)">Join requests</h2><div class=list>${rq.map(r=>`<p><b>${h(D.users.find(x=>x.id==r.uid)?.name)}</b> <button data-a=ok data-i=${r.uid}>Accept</button> <button class=ghost data-a=no data-i=${r.uid}>Decline</button></p>`).join('')||'<p>No pending requests.</p>'}</div>
+<h2 class="strip torn" style="--c:var(--pink)">Your events</h2><div class=list>${ev.map(e=>`<p><b>${h(e.title)}</b> ${h(e.date)}: ${e.cap-left(e)} of ${e.cap} seats taken <button class=ghost data-a=csv data-i=${e.id}>Download list (CSV)</button> <button class=ghost data-a=del data-i=${e.id}>Delete</button></p>`).join('')||'<p>No events yet. Create your first one above.</p>'}</div>`}
+};
+const dec=(i,s)=>{if(!own(cid()))return;const r=D.reqs.find(r=>r.uid==i&&r.cid==cid()&&r.st=='wait');if(r){r.st=s;toast(s=='ok'?'Request accepted':'Request declined')}};
+const A={
+join(i){if(!need())return;D.reqs.push({uid:D.me,cid:i,st:'wait'});toast('Request sent')},
+reg(i){if(!need())return;const e=D.events.find(x=>x.id==i);if(left(e)<1)return;D.regs.push({id:uid(),uid:D.me,eid:i});toast('Registered')},
+unreg(i){D.regs=D.regs.filter(r=>!(r.eid==i&&r.uid==D.me));toast('Registration cancelled')},
+ok(i){dec(i,'ok')},no(i){dec(i,'no')},
+del(i){const e=D.events.find(x=>x.id==i);if(!e||!own(e.cid))return;D.events=D.events.filter(x=>x!=e);D.regs=D.regs.filter(r=>r.eid!=i);toast('Event deleted')},
+csv(i){const e=D.events.find(x=>x.id==i);if(!e||!own(e.cid))return 1;const rows=[['Name','Email','Ticket'],...D.regs.filter(r=>r.eid==i).map(r=>{const s=D.users.find(x=>x.id==r.uid);return[s.name,s.email,r.id.toUpperCase()]})],a=document.createElement('a');a.href=URL.createObjectURL(new Blob([rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n')],{type:'text/csv'}));a.download='registrations.csv';a.click();return 1},
+out(){D.me=null;save();location.hash='#/';return 1}
+};
+const go=u=>location.hash=u.role=='member'?'#/club':'#/me',done=t=>{save();toast(t);P.club()};
+const F={
+q(f){location.hash='#/clubs?q='+encodeURIComponent(f.get('q'))},
+flt(f){location.hash='#/clubs?'+new URLSearchParams(f)},
+login(f){const u=D.users.find(x=>x.email==f.get('email').toLowerCase()&&x.pw==btoa(f.get('pw')));if(!u)return toast('Email or password is incorrect');D.me=u.id;save();go(u)},
+signup(f){const em=f.get('email').toLowerCase();if(D.users.some(x=>x.email==em))return toast('That email already has an account. Log in instead.');const role=f.get('role'),u={id:uid(),name:f.get('name'),email:em,pw:btoa(f.get('pw')),role,clubs:role=='member'?[f.get('club')]:[]};D.users.push(u);D.me=u.id;save();go(u)},
+about(f){if(!own(cid()))return;D.clubs.find(c=>c.id==cid()).about=f.get('about');done('Profile saved')},
+anf(f){if(!own(cid()))return;D.anns.unshift({id:uid(),cid:cid(),title:f.get('title'),date:new Date().toISOString().slice(0,10)});done('Announcement published')},
+evf(f){if(!own(cid()))return;D.events.push({id:uid(),cid:cid(),title:f.get('title'),date:f.get('date'),venue:f.get('venue'),cap:Math.max(1,+f.get('cap'))});done('Event created')}
+};
+let pg='home';
+function render(){const[p,qs]=(location.hash.slice(2)||'').split('?'),u=me();pg=P[p]?p:'home';
+const L=(k,t)=>`<a href="#/${k}" ${pg==k?'class=on aria-current=page':''}>${t}</a>`;
+$('#nav').innerHTML=`<a class=logo href="#/">★ MCOE Pulse</a><nav>${L('clubs','Clubs')}${L('events','Events')}${u?(u.role=='member'?L('club','Workspace'):'')+L('me','My space')+'<a href=# data-a=out>Log out</a>':L('login','Log in')}</nav>`;
+P[pg](new URLSearchParams(qs||''))}
+document.addEventListener('submit',e=>{const f=e.target;if(F[f.id]){e.preventDefault();F[f.id](new FormData(f))}});
+document.addEventListener('change',e=>{if(e.target.id=='sw'){sessionStorage.cid=e.target.value;render()}});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;e.preventDefault();if(A[b.dataset.a](b.dataset.i)!==1){save();render()}});
+addEventListener('hashchange',()=>{render();scrollTo(0,0)});
+render();
+</script></body></html>
